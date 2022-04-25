@@ -1,0 +1,4 @@
+<div [ngClass]="isLoading? 'loader-container': ''">
+    <span [ngClass]="isLoading? 'loader' : ''"></span>
+    <ng-content></ng-content>
+</div>

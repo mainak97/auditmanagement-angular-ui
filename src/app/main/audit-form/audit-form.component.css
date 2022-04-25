@@ -1,0 +1,13 @@
+.invalid-feedback {
+    position: absolute;
+    width: auto;
+}
+
+.audit-questions-container {
+    min-height: 300px;
+    max-height: 300px;
+    border: 1px black solid;
+    overflow-y: auto;
+    border-radius: 0.25rem;
+    padding: 0.5rem;
+}

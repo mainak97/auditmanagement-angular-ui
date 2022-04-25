@@ -1,0 +1,9 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" routerLink="/">Audit Management</a>
+      <span class="navbar-text">
+        Welcome {{ username }}!
+      </span>
+      <a [ngStyle]="{ cursor: 'pointer' }" (click)="onLogOut()">Log Out</a>
+    </div>
+</nav>

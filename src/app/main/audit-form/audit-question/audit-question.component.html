@@ -1,0 +1,13 @@
+<div class="mb-3" [formGroup]="formGroup">
+    <p>{{ (index+1)+". "+question.question }}</p>
+    <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="{{ index }}"
+        id="{{ 'auditQuestionYes' + index }}" value="true" [formControlName]="''+index">
+        <label class="form-check-label" for="{{ 'auditQuestionYes' + index }}">Yes</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="{{ index }}"
+        id="{{ 'auditQuestionNo' + index }}" value="false" [formControlName]="''+index">
+        <label class="form-check-label" for="{{ 'auditQuestionNo' + index }}">No</label>
+      </div>
+</div>

@@ -1,0 +1,73 @@
+<app-loader [isLoading]="isLoading()">
+    <form [formGroup]="auditForm" (ngSubmit)="onSubmit()" autocomplete="off">
+        <div class="col-md-10 mb-4">
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <label for="projectName" class="form-label">Project Name</label>
+                    <input type="text" formControlName="projectName" class="form-control"
+                        [ngClass]="getFormControlClass('projectName')" id="projectName" placeholder="">
+                    <div id="projectNameFeedback" class="invalid-feedback">
+                        Please enter the Project Name.
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label for="projectManagerName" class="form-label">Project Manager Name</label>
+                    <input type="text" formControlName="projectManagerName" class="form-control" 
+                        [ngClass]="getFormControlClass('projectManagerName')" id="projectManagerName" placeholder="">
+                    <div id="projectManagerNameFeedback" class="invalid-feedback">
+                        Please enter the Project Manager Name.
+                    </div>
+                </div>
+                <div class="mb-3 col-md-4">
+                    <label for="applicationOwnerName" class="form-label">Application Owner Name</label>
+                    <input type="text" formControlName="applicationOwnerName" class="form-control" 
+                        [ngClass]="getFormControlClass('applicationOwnerName')" id="applicationOwnerName" placeholder="">
+                    <div id="applicationOwnerNameFeedback" class="invalid-feedback">
+                        Please enter the Application Owner Name.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div [formGroup]="getAuditDetailsFormGroup()">
+            <div class="col-md-10 mb-4">
+                <div class="row">
+                    <div class="mb-3 col-md-3">
+                        <label for="auditDate" class="form-label">Audit Date</label>
+                        <input type="date" formControlName="auditDate" class="form-control" 
+                            [ngClass]="getFormControlClass('auditDetails.auditDate')" id="auditDate" placeholder="">
+                        <div id="auditDateFeedback" class="invalid-feedback">
+                            Please enter the Audit Date.
+                        </div>
+                    </div>
+                    <div class="mb-3 col-md-3">
+                        <label for="auditType" class="form-label">Audit Type</label>
+                        <select formControlName="auditType" class="form-select" 
+                            [ngClass]="getFormControlClass('auditDetails.auditType')" ria-label="Select audit type" id="auditType">
+                            <option selected value="default">Select Audit Type</option>
+                            <option *ngFor="let auditType of auditTypes" value="{{ auditType.value }}">{{ auditType.label }}</option>
+                        </select>
+                        <div id="auditTypeFeedback" class="invalid-feedback">
+                            Please enter the Audit Type.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-10">
+                <h3>Audit Questions</h3>
+                <input type="hidden" [ngClass]="getFormControlClass('auditDetails.auditQuestions')">
+                <div id="auditQuestionsFeedback" class="invalid-feedback">
+                    Please answer all the questions.
+                </div>
+                <p [ngClass]="questions.length === 0? '' : 'invisible'">Please select Audit Type to load Audit Questions</p>
+                <div formArrayName="auditQuestions" class="mt-5 mb-5 audit-questions-container" >
+                    <app-audit-question *ngFor="let question of questions; let i = index"
+                    [question]="question" [formGroup]="getAuditQuestionsFormGroup()" [index]="i"></app-audit-question>
+                </div>
+                <div class="col mb-3">
+                    <button class="btn btn-success" type="submit">Submit</button>
+                    <button class="btn btn-danger ms-3" type="button" (click)="onReset()">Reset</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</app-loader>

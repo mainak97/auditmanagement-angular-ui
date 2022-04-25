@@ -1,0 +1,16 @@
+<div class="card mb-5">
+    <div class="card-header">
+      Project Execution Status
+    </div>
+    <div class="card-body">
+      <blockquote class="blockquote mb-0">
+        <div class="row">
+            <p>ID: {{ auditResult.id }}</p>
+            <p>Execution Status: 
+              <span [ngClass]="auditResult.projectExecutionStatus">{{ auditResult.projectExecutionStatus }}</span>
+            </p>
+            <p>Remedial Action: {{ auditResult.remedialAction }}</p>
+        </div>
+      </blockquote>
+    </div>
+</div>

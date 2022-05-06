@@ -1,0 +1,6 @@
+{
+    "getJwtUrl": "http://localhost:7000/api/getjwt",
+    "authJwtUrl": "http://localhost:7000/api/authjwt",
+    "projectExecutionUrl": "http://localhost:8081/api/projectexecutionstatus",
+    "checklistQuestionsUrl": "http://localhost:8000/api/auditchecklistquestions"
+}

@@ -1,15 +1,16 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Audit } from './audit-form.model';
 import { Injectable } from '@angular/core';
+import apiUrl from '../../../api.config.json';
 
 @Injectable()
 export class AuditFormApi {
     constructor(private http: HttpClient) {}
 
     getAuditQuestions(auditType: string) {
-        return this.http.get('http://localhost:8080/api/auditchecklistquestions',{ 
+        return this.http.get(apiUrl.checklistQuestionsUrl,{ 
             headers: new HttpHeaders({
-                'audit-type': ''
+                'audit-type': auditType
             })
         });
     }
@@ -25,6 +26,6 @@ export class AuditFormApi {
                 auditQuestionsNo: auditForm.auditDetails.auditQuestions.reduce((count,ans) => ans==="false"? count+1:count, 0)
             }
         };
-        return this.http.post('http://localhost:8080/api/projectexecutionstatus',formattedAuditForm);
+        return this.http.post(apiUrl.projectExecutionUrl,formattedAuditForm);
     }
 };

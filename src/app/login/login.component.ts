@@ -44,9 +44,9 @@ export class LoginComponent implements OnInit {
   getError() {
     const errorCode = this.authService.errorObj.errorCode;
     let errorMsg;
-    if(errorCode === '8005') {
+    if(errorCode === 8005) {
       errorMsg = 'Invalid username or password';
-    } else if (errorCode !== '') {
+    } else if (errorCode !== -1) {
       errorMsg = this.authService.errorObj.errorMsg;
     } else {
       errorMsg = '';

@@ -11,7 +11,7 @@ export class AuthService {
     username = '';
     loggedIn = false;
     errorObj = {
-        errorCode: '',
+        errorCode: -1,
         errorMsg: ''
     };
 
@@ -26,7 +26,7 @@ export class AuthService {
             this.loggedIn = true;
             this.isLoading = false;
             this.errorObj = {
-                errorCode: '',
+                errorCode: -1,
                 errorMsg: ''
             };
             this.router.navigate(["/"]);
@@ -43,7 +43,7 @@ export class AuthService {
                 this.errorObj = error.error;
             } else {
                 this.errorObj = {
-                    errorCode: '0',
+                    errorCode: 0,
                     errorMsg: 'An unknown error has occurred.'
                 };
             }

@@ -19,11 +19,11 @@ export class AlertComponent implements OnInit {
   }
 
   hideModal(): void {
-    this.mainErrorService.setErrorObj({ errorCode: '', errorMsg: '' });
+    this.mainErrorService.setErrorObj({ errorCode: 0, errorMsg: '' });
   }
 
   closeModal(): void {
-    if(this.mainErrorService.errorObj.errorCode === '8005') {
+    if(this.mainErrorService.errorObj.errorCode === 8005) {
       this.authService.logOut();
     }
     this.hideModal();

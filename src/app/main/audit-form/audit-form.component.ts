@@ -32,6 +32,7 @@ export class AuditFormComponent implements OnInit {
       (auditType: string) => {
         if(auditType === 'default') {
           this.questions = [];
+          (<FormArray>this.auditForm.get('auditDetails.auditQuestions')).clear();
           this.auditForm.get('auditDetails.auditQuestions')?.markAsUntouched();
           return;
         }

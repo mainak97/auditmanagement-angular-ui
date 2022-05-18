@@ -1,0 +1,6 @@
+{
+    "getJwtUrl": "http://44.200.189.129:7000/api/getjwt",
+    "authJwtUrl": "http://44.200.189.129:7000/api/authjwt",
+    "projectExecutionUrl": "http://18.206.187.136:8081/api/projectexecutionstatus",
+    "checklistQuestionsUrl": "http://18.232.184.83:8000/api/auditchecklistquestions"
+}
